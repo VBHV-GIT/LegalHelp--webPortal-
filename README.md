@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -38,3 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 =======
 # Bank-Managment
 >>>>>>> dfd632589ecfb19a56e111e82ba796212c82d83b
+=======
+# LegalHelp--webPortal-
+>>>>>>> 30d66b65dc875045dab3387ce7ac68a5b0a39ef9
