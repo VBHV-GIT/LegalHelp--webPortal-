@@ -45,7 +45,7 @@ export default function LawyerAvailabilityList() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-     <HeaderBox/>
+     {/* <HeaderBox/> */}
 
       <main className="container mx-auto px-4 py-8">
         <SubHeader title='List of Lawyers'/>

@@ -11,7 +11,7 @@ const Home = () => {
     <section className='home'>
       <div className='home-content'>
          <header className='home-header'>
-          <HeaderBox/>
+          {/* <HeaderBox/> */}
        {/* <HeaderBox
        type="greeting"
        title="Welcome"
