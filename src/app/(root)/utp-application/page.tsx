@@ -6,19 +6,42 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import HeaderBox from '@/components/ui/HeaderBox';
 import SubHeader from '@/components/SubHeader';
 import { Input } from "@/components/ui/input";
+import axios from 'axios';
+
+
+interface CaseDetails {
+  _id: string;
+  name: string;
+  caseType: string;
+  underSection: string;
+  dateOfBirth: string;
+  gender: string;
+  phoneNumber: string;
+  email: string;
+  state: string;
+  city: string;
+  street: string;
+  zipCode: string;
+  incidentDate: string;
+  incidentState: string;
+  incidentCity: string;
+  incidentStreet: string;
+}
+
 
 export default function UtpApplication() {
-  const [cases, setCases] = useState([]);
+  const [cases, setCases] = useState<CaseDetails[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Fetch data on mount
   useEffect(() => {
     const fetchCases = async () => {
       try {
-        const res = await fetch('/api/cases'); // Call the API endpoint
-        const data = await res.json();
-        if (data.success) {
-          setCases(data.data); // Set the fetched data
+        const res = await axios.get('http://localhost:8888/cases'); // Call the API endpoint
+        const data = res.data.data;
+        console.log(data);
+        if (res.status === 200) {
+          setCases(data); // Set the fetched data
         }
       } catch (error) {
         console.error('Error fetching cases:', error);
@@ -38,10 +61,9 @@ export default function UtpApplication() {
             <div className="bg-white shadow rounded-lg overflow-hidden">
               <Table>
                 <TableHeader>
-                  <TableRow>
+                  <TableRow className='font-bold' >
                     <TableHead>Name</TableHead>
                     <TableHead>Gender</TableHead>
-                    <TableHead>Fir/Crime No.</TableHead>
                     <TableHead>Name of police station</TableHead>
                     <TableHead>Offence under section</TableHead>
                     <TableHead>Review</TableHead>
@@ -52,9 +74,8 @@ export default function UtpApplication() {
                     <TableRow key={item._id}>
                       <TableCell>{item.name}</TableCell>
                       <TableCell>{item.gender}</TableCell>
-                      <TableCell>{item.firNo}</TableCell>
-                      <TableCell>{item.policeStation}</TableCell>
-                      <TableCell>{item.offence}</TableCell>
+                      <TableCell>{item.incidentCity} Police Station</TableCell>
+                      <TableCell>{item.underSection}</TableCell>
                       <TableCell>
                         <Button 
                           variant="link" 
@@ -64,7 +85,7 @@ export default function UtpApplication() {
                             "text-red-600"
                           }
                         >
-                          {item.reviewStatus}
+                          View
                         </Button>
                       </TableCell>
                     </TableRow>
