@@ -6,7 +6,7 @@ import { Section } from 'lucide-react'
 import React from 'react'
 
 const Home = () => {
-  const loggedIn = {firstName : 'Shrawani', lastName : 'Wagh', email:"waghshrawani2003@gmail.com"}
+  const loggedIn = {firstName : 'Vaibhav', lastName : 'Thawari', email:"vaibhavthawari70@gmail.com"}
   return (
     <section className='home'>
       <div className='home-content'>

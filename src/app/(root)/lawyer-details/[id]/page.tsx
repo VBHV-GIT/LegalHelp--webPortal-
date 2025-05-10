@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useParams, useRouter } from 'next/navigation'; 
 import Image from 'next/image'
 import { Bell, Search, MoreHorizontal, Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
@@ -17,7 +18,11 @@ import HeaderBox from '@/components/ui/HeaderBox'
 
 export default function LawyerDetailsAllocation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+const router = useRouter();
+ const params = useParams();
+const handleAllocate = () => {
+    router.push(`/lawyer-list?status=Allocate&id=${params.id}`);
+  };
   return (
     <div className="min-h-screen bg-gray-100">
       {/* <HeaderBox/> */}
@@ -157,8 +162,8 @@ export default function LawyerDetailsAllocation() {
         </Card>
 
         <div className="flex justify-end space-x-4">
-          <Button variant="outline" className="bg-gray-300 text-gray-700">Back</Button>
-          <Button className="bg-blue-600 text-white hover:bg-purple-600">Allocate</Button>
+          <Button variant="outline" className="bg-gray-300 text-gray-700" onClick={() => router.back()}>Back</Button>
+          <Button className="bg-blue-600 text-white hover:bg-purple-600" onClick={handleAllocate}>Allocate</Button>
         </div>
       </main>
     </div>

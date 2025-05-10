@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter , IBM_Plex_Serif} from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
+import '../app/api/cases/globals.css'; // Adjust the path if necessary
+
+function MyApp({ Component, pageProps }: any) {
+  return <Component {...pageProps} />;
+}
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const ibm_Plex_Serif = Inter({ subsets: ["latin"], 

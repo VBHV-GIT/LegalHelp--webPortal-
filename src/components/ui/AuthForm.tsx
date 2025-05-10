@@ -25,14 +25,15 @@ import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 // import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions';
 // import PlaidLink from './PlaidLink';
-
+const logo = '/icons/logo.svg';
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const authFormSchema = (type: string) => {
     return z.object({
-      username: z.string().email(), // Add other fields as needed
+      email: z.string().email(),
+      password: z.string().min(6), // Add other fields as needed
       // Add validation for password, email, etc. based on the type
     });
   };
@@ -44,7 +45,7 @@ const AuthForm = ({ type }: { type: string }) => {
       resolver: zodResolver(formSchema),
       defaultValues: {
         email: "",
-        password: ''
+        password: ""
       },
     })
    
@@ -91,6 +92,7 @@ const AuthForm = ({ type }: { type: string }) => {
     }
 
   return (
+    
     <section className="auth-form">
       <header className='flex flex-col gap-5 md:gap-8'>
           <Link href="/" className="cursor-pointer flex items-center gap-1">

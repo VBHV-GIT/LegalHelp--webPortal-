@@ -1,5 +1,5 @@
 'use client'
-
+import React from 'react';
 import { useState } from 'react'
 import Image from 'next/image'
 import { Bell, Search, MoreHorizontal, Menu, Calendar, Clock } from 'lucide-react'
@@ -41,16 +41,15 @@ export default function CaseInfo() {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      
 
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-<HeaderBox/>
+        <HeaderBox />
         {/* Page content */}
         <main className="flex-1 overflow-y-auto bg-gray-50 p-4">
           <div className="max-w-7xl mx-auto">
-           <SubHeader title='Case Info'/>
+            <SubHeader title="Case Info" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               {caseStats.map((stat, index) => (
@@ -60,7 +59,7 @@ export default function CaseInfo() {
                       <div className="text-3xl font-bold">{stat.count}</div>
                       <div className="text-sm">{stat.title}</div>
                     </div>
-                    <stat.icon className="h-8 w-8" />
+                    {React.createElement(stat.icon, { className: "h-8 w-8" })}
                   </div>
                 </div>
               ))}
@@ -75,7 +74,7 @@ export default function CaseInfo() {
                       <div className="text-sm">{stat.title}</div>
                       <div className="text-lg font-semibold">{stat.percentage}</div>
                     </div>
-                    <stat.icon className="h-8 w-8" />
+                    {React.createElement(stat.icon, { className: "h-8 w-8" })}
                   </div>
                 </div>
               ))}
@@ -83,11 +82,15 @@ export default function CaseInfo() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
-                <label htmlFor="caseNo" className="block text-sm font-medium text-gray-700 mb-1">Search Case :</label>
+                <label htmlFor="caseNo" className="block text-sm font-medium text-gray-700 mb-1">
+                  Search Case:
+                </label>
                 <Input id="caseNo" placeholder="Enter Case No." />
               </div>
               <div>
-                <label htmlFor="year" className="block text-sm font-medium text-gray-700 mb-1">Year :</label>
+                <label htmlFor="year" className="block text-sm font-medium text-gray-700 mb-1">
+                  Year:
+                </label>
                 <Input id="year" placeholder="Search Year" />
               </div>
             </div>
@@ -104,7 +107,9 @@ export default function CaseInfo() {
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell colSpan={4} className="bg-green-100 font-semibold">Pending Cases</TableCell>
+                    <TableCell colSpan={4} className="bg-green-100 font-semibold">
+                      Pending Cases
+                    </TableCell>
                   </TableRow>
                   {pendingCasesData.map((row, index) => (
                     <TableRow key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>

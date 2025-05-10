@@ -15,7 +15,7 @@ import { z } from 'zod'
 //   placeholder: string
 // }
 
-const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
+const CustomInput = ({ control, name, label, placeholder }: any) => {
   return (
     <FormField
       control={control}

@@ -9,7 +9,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedIn = {firstName : 'shrawani', lastName: 'Wagh'}
+  const loggedIn = {firstName : 'Vaibhav', lastName: 'Thawari'
+    , $id: ' ',
+    email: ' ',
+    userId: ' ',
+    dwollaCustomerUrl: ' ',
+    dwollaCustomerId: ' ',
+    address1: ' ',
+    city: ' ',
+    state: ' ',
+    postalCode: ' ',
+    dateOfBirth: ' ',
+    ssn: ' ',
+  }
   return (
 <main className="flex h-screen w-full font-inter">
     <Slidebar user={loggedIn}/>
